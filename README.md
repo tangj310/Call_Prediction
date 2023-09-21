@@ -8,14 +8,14 @@ Tech Issues.
 
 ##### The pipeline contains three main components:
 1. __dataOPs__: A wrapper to preform spark operations and load data into dataframes before Preprocessor
-2. __PreProcessor__: Feature engineering preprocessing from raw tables: 
-                    <br>- App_dcc
-                    - HEM
-                    - IPTV
-                    - ICM
-                    - IUM
-                    - Verint
-                    - Boldchat
+2. __PreProcessor__: Feature engineering preprocessing from raw tables: <br />
+                    - App_dcc <br />
+                    - HEM <br />
+                    - IPTV <br />
+                    - ICM <br />
+                    - IUM <br />
+                    - Verint <br />
+                    - Boldchat <br />
 
 3. __Pipeline__: Including Pipeline Configurations
                 - Call Prediction Pipeline (The principle pipeline configuration)
