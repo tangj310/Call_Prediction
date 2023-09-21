@@ -8,20 +8,20 @@ Tech Issues.
 
 ##### The pipeline contains three main components:
 1. __dataOPs__: A wrapper to preform spark operations and load data into dataframes before Preprocessor
-2. __PreProcessor__: Feature engineering preprocessing from raw tables: 
-                    - App_dcc
-                    - HEM
-                    - IPTV
-                    - ICM
-                    - IUM
-                    - Verint
-                    - Boldchat
+2. __PreProcessor__: Feature engineering preprocessing from raw tables: <br />
+                    - App_dcc <br />
+                    - HEM <br />
+                    - IPTV <br />
+                    - ICM <br />
+                    - IUM <br />
+                    - Verint <br />
+                    - Boldchat <br />
 
-3. __Pipeline__: Including Pipeline Configurations
-                - Call Prediction Pipeline (The principle pipeline configuration)
-                - Training Pipeline
-                - Batch Inferencing Pipeline
-                - Auto Training pipeline 
+3. __Pipeline__: Including Pipeline Configurations <br />
+                - Call Prediction Pipeline (The principle pipeline configuration) <br />
+                - Training Pipeline <br />
+                - Batch Inferencing Pipeline <br />
+                - Auto Training pipeline <br />
 
 
 
@@ -36,15 +36,14 @@ will call for Tech Issues.
 
 ### 1. Cloning the repository
 You would first need to clone this repository to the host you want to set up your development environment.
-You can use your own local environment (Rogers laptop), or an Azure ML compute instance as your
+You can use your own local environment, or an Azure ML compute instance as your
 development environment host.
-* __You can connect your local host to Rogers GitHub via ssh ONLY__, please follow the steps specified
+* __You can connect your local host to GitHub via ssh ONLY__, please follow the steps specified
 [here](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) to do so, prior to cloning the repository. 
 
 ### 2. Importing the project to IDE
-You can import your project to an IDE of your choice, such as PyCharm or VSCode. We recommend using PyCharm
-if your setting up the environment on your own Rogers laptop, and VSCode if you are setting up
-your development environment on an AML compute instance. Download and install [PyCharm community edition](https://www.jetbrains.com/pycharm/download/#section=mac)
+You can import your project to an IDE of your choice, such as PyCharm or VSCode. We recommend using PyCharm/VS code
+if your setting up the environment on your own laptop. Download and install [PyCharm community edition](https://www.jetbrains.com/pycharm/download/#section=mac)
 if you don't have it on your local host.
 
 * The project has to be connected to a virtual python environment, containing CD4MT dependencies only.
@@ -94,5 +93,5 @@ The Batch Inference Pipeline has 2 steps:
 1. Inferencing and Save Step: This is a Python Script Step where we load the model from AML model registery 
 and apply inferencing and save in some data storage.
    
-The configuration yaml file can be found in conf/pipeline/inferencing
+The configuration yaml file can be found in conf/inferencing
 
