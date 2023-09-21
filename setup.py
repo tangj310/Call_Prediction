@@ -1,5 +1,6 @@
 # ##
 # This is the setup.py file to generate the necessary .egg
+# User will use python setup.py bdist_egg to generate egg file
 # ##
 
 import setuptools

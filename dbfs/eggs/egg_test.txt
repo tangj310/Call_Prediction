@@ -1,0 +1,1 @@
+This is the fake egg file, which need to be stored for CI/CD purpose
