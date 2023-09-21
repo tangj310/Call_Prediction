@@ -1,0 +1,35 @@
+configs:
+  team_name: 'ANC'
+  repo_name: 'Call_Prediction'
+aml:
+  agent_enviornment:
+    initialize_environment: true # for first run set this to true
+    enviornment_name: 'DIGITAL_CP_AGENT_ENV'
+    environment_path: 'Call_Prediction/devops/agent_env/DIGITAL_CP_AGENT_ENV.yml'
+    library_requirement_path: 'Call_Prediction/devops/agent_env/library_requirements.txt'
+  aml_configuration:
+    source_resource_group: 'maz-cac-aml-wstn-digital-rg'
+    source_workspace: 'mazcacnpedigitalaml01'
+    target_resource_group: 'maz-cac-dmt-prd-eda-anc-stg-aml-rg'
+    target_workspace: 'mazcacprdancaml01'
+#  aml_model_registration: #TODO: source_name and target name should be same
+#    - model:
+#        source_name: 'cp_RandomForest_v1_2022-03-03'
+#        target_name: 'test_cp_RandomForest_v1_2022-03-03'
+#        version: '1'
+  aml_pipelines:
+    scoring_pipelines:
+      - pipeline:
+          python_script: 'run_pipeline.py'
+          arguments: ['--pipeline_config Call_Prediction/conf/pipeline/inferencing/stg/stg_inference_pipeline_config.yaml', 
+                      '--azure_config Call_Prediction/conf/pipeline/inferencing/stg/stg_azure_config.json']
+          python_path: 'Call_Prediction/src'
+          working_directory: 'Call_Prediction\main_scripts\pipeline\auto_training_pipeline'
+
+databricks:
+  workspace_configs:
+    org_id: 4004057574469351
+    region: "canadacentral"
+  dbfs:
+    - local: "Call_Prediction/dbfs/eggs"
+      target: "/FileStore/eggs/"

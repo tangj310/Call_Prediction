@@ -1,0 +1,40 @@
+# Staging Needs to Change
+repo_link: "https://serv_eda_jen_github:AKCp8hyt75r9yBbvMKHhBBThEeETDCLjpnbAfCn2nSJDE9Yu3W9aMXn2wpYw5KGwuM6VA8oeZ@artifactory.rogers.com/artifactory/api/pypi/eda-pypi-virtual/simple"
+egg_lib_path: "dbfs:/FileStore/eggs/callprediction-0.0.6-py3.8.egg"
+
+db_attached_compute: "DBR-aiml-mt-stg"
+aml_compute_target: "prdstgmtamlc02"
+etl_datastore: "mlmodel_data_acc"
+inference_datastore: "data_source_mazcacprddmtssdls_rogers_eda_derived_prd_sensitive_storage"
+output_dir: "digital-dsc/CallPrediction/V2/Predictions/"  ##MOVED TO ENV SPECIFIC##
+
+# Staging Doesn't Need to Change Unless they really want to
+
+env_name: "CP_environment"
+endpoint_name: "Test_ANC_CP_Batch_Inference_v1"
+experiment_name: "Test_ANC_CP_Batch_Inference"
+model_name: "cp_RandomForest_v1_2022-02-23"
+output_dir: "digital_call_prediction/v2/predictions/"
+script_dir: "./CallPrediction/main_scripts/pipeline/batch_inference_pipeline"
+etl_step_script_name: "cp_etl_test.py"
+inference_save_step_script_name: "cp_score_save.py"
+schedule:
+  schedule_name: "Call_Prediction_Daily_Inference"
+  start_time: "12:00"
+  frequency: "Day"
+  schedule_interval: 1
+  schedule_timezone: "EasternStandardTime"
+pypi_packages:
+  - "python-dotenv"
+  - "confuse"
+conda_packages:
+  - "pip"
+  - "scikit-learn"
+  - "pandas"
+pip_packages:
+  - 'azureml-defaults'
+  - 'azureml-core'
+  - 'azureml-dataprep[fuse]===2.13.0'
+  - 'azureml-dataset-runtime[fuse,pandas]'
+  - 'azureml-train-automl'
+  - 'xgboost==0.90'

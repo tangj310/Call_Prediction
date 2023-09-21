@@ -1,0 +1,17 @@
+trigger:
+- None
+
+resources:
+  repositories:
+  - repository: anc_template_repo
+    type: github
+    name: RogersCommunications/edads-ai-nerve-center
+    ref: refs/heads/main
+    endpoint: RogersCommunications
+
+extends:
+  template: DevOps/templates/ANC-general-mlops.yml@anc_template_repo
+  parameters:
+    # Common
+    orchestration_file_path: 'Call_Prediction/devops/project/Call_Prediction/test/stg_orchestration_test.yml'
+    service_connection_group: 'Azure-STG-Digital'

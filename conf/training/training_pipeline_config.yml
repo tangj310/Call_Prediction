@@ -1,0 +1,17 @@
+conda_packages:
+  - "matplotlib"
+  - "scikit-learn"
+  - "pandas"
+pip_packages:
+  - 'azureml-defaults'
+  - 'azureml-core'
+  - 'azureml-interpret'
+  - 'lightgbm'
+  - 'azureml-mlflow'
+env_name: "cp_training_env"
+endpoint_name: 'CP_Training'
+experiment_name: "CP_Training"
+compute_target: "npedigitalamlc01"
+script_dir: "/Users/Jerry.Tang/Documents/GitHub/CallPrediction/main_scripts/pipeline/training_pipeline"
+training_script_name: "training_script.py"
+datastore: "data_source_mazcacnpedigitaldls01_ml_etl_output_data"

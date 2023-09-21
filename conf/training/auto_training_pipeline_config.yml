@@ -1,0 +1,38 @@
+conda_packages:
+  - "matplotlib"
+  - "scikit-learn"
+  - "pandas"
+pip_packages:
+  - 'azureml-defaults'
+  - 'azureml-core'
+  - 'azureml-interpret'
+  - 'lightgbm'
+  - 'azureml-mlflow'
+pypi_packages:
+  - "python-dotenv"
+  - "confuse"
+  - 'azureml-defaults==1.43.0'
+  - 'azureml-core'
+cluster_logs_path: "dbfs:/tmp/logs/cp_autotrain/"
+env_name: "cp_auto_training_env"
+script_dir: "auto_training_script.py"
+endpoint_name: 'CP_Auto_Training_Endpoint'
+experiment_name: "CP_Auto_Training"
+egg_lib_path: "dbfs:/FileStore/eggs/callprediction_0_0_15_auto_train_02_py3_7.egg"
+db_attached_compute: "digCompRobust"
+aml_compute_target: "npedigitalamlc01"
+etl_datastore: "data_source_mazcacnpedigitaldls01_ml_etl_output_data"
+derived_scores_datastore: "data_source_mazcacnpedmtssdls_rogers_eda_derived_dev_sensitive_storage"
+repo_link: "https://serv_eda_jen_github:AKCp8hyt75r9yBbvMKHhBBThEeETDCLjpnbAfCn2nSJDE9Yu3W9aMXn2wpYw5KGwuM6VA8oeZ@artifactory.rogers.com/artifactory/api/pypi/eda-pypi-virtual/simple"
+python_version: '3.7.10'
+output_dir_autotrain_score: 'digital_anc/digital_call_prediction/v2/autotrain_score/'
+
+script_dir: "./main_scripts/pipeline/auto_training_pipeline"
+training_script_name: "auto_training_script.py"
+dataset_etl_step_script: "cp_dataset_etl.py"
+
+
+train_start_date: '2022-12-05'
+train_end_date: '2022-12-10'
+test_start_date: '2022-12-11'
+test_end_date: '2022-12-12'

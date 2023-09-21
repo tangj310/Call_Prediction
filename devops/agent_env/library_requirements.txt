@@ -1,0 +1,4 @@
+azureml-core==1.39.0
+azureml-pipeline==1.39.0
+azure-cli-core==2.34.1
+azureml-sdk==1.39.0

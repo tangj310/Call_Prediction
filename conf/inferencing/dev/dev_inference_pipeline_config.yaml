@@ -1,0 +1,60 @@
+repo_link: "https://serv_eda_jen_github:AKCp8hyt75r9yBbvMKHhBBThEeETDCLjpnbAfCn2nSJDE9Yu3W9aMXn2wpYw5KGwuM6VA8oeZ@artifactory.rogers.com/artifactory/api/pypi/eda-pypi-virtual/simple"
+etl_datastore: "data_source_mazcacnpedigitaldls01_ml_etl_output_data"
+derived_scores_datastore: "data_source_mazcacnpedmtssdls_rogers_eda_derived_dev_sensitive_storage"
+#dbfs:/FileStore/eggs/callprediction_0_0_14_whix_verint_6_py3_7.egg previous egg is good in databricks DEV
+egg_lib_path: "dbfs:/FileStore/eggs/callprediction_0_0_15_whix_verint_02_py3_7.egg" # current egg is good in  databricks DEV
+db_attached_compute: "digCompRobust"
+aml_compute_target: "npedigitalamlc01"
+instance_pool_id: "1109-193259-aloud14-pool-k7mjjs7u"
+
+
+env_name: "CP_environment"
+endpoint_name: "CP_Batch_Inference_v1"
+experiment_name: "CP_Batch_Inference"
+model_name: "cp_RandomForest_v1_2023-02-23"
+output_dir: "digital-anc/CallPrediction/V2/Predictions/"  ##MOVED TO ENV SPECIFIC##
+output_dir_local_exp: 'digital-anc/CallPrediction/V2/explanations/' #TODO: stg need change
+output_dir_elt_store: "digital-anc/CallPrediction/V2/elt_store/"
+
+script_dir: "./main_scripts/pipeline/batch_inference_pipeline"
+etl_step_script_name: "cp_etl_v2.py"
+inference_save_step_script_name: "cp_score_save.py"
+local_exp_save_step_script_name: 'cp_local_exp.py' #TODO: stg need change
+etl_output_save_step_script_name: "cp_etl_output_save.py"
+inference_date: "2023-01-28" #TODO: change to certain inf date for test
+cluster_logs_path: "dbfs:/tmp/logs/cp/"
+schedule:
+  schedule_name: "Call_Prediction_Daily_Inference"
+  start_time: "12:00"
+  frequency: "Day"
+  schedule_interval: 1
+  schedule_timezone: "EasternStandardTime"
+python_version: '3.8.13'
+pypi_packages:
+  - "python-dotenv"
+  - "confuse"
+  - 'azureml-defaults'
+  - 'azureml-core'
+conda_packages:
+    - "pip"
+    - "numpy==1.18.5"
+    - "pandas==1.1.5"
+    - "py-xgboost==1.3.3"
+    - "pyarrow"
+pip_packages:
+  - "scikit-learn==0.22.1"
+  - "azureml-train-automl-runtime==1.43.0.post1"
+  - "azureml-interpret==1.43.0"
+  - "azureml-defaults==1.43.0"
+    # Staging Needs to Change
+
+spark_conf:
+  spark.serializer: "org.apache.spark.serializer.KryoSerializer"
+  spark.databricks.delta.preview.enabled: "true"
+  spark.kryoserializer.buffer.max: "2000M"
+
+spark_version: "10.4.x-scala2.12"
+node_type: "Standard_E32s_v3"
+num_workers: 10
+
+
