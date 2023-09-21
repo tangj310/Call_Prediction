@@ -31,5 +31,5 @@ databricks:
     org_id: 4004057574469351
     region: "canadacentral"
   dbfs:
-    - local: "Call_Prediction/dbfs/eggs"
+    - local: "Call_Prediction/dbfs/eggs" # This is the local egg storage location stating in the folder structures
       target: "/FileStore/eggs/"
